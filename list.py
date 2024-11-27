@@ -1,6 +1,8 @@
 def main():
-    print(prompt())
+    if prompt() == 2:
+        return add_task()
 
+tasks = []
 
 def prompt():
 
@@ -21,6 +23,18 @@ def prompt():
             return int(input('Select an option: '))
         except ValueError:
             continue
+        except KeyboardInterrupt:
+            break
+
+
+
+def add_task():
+    description = input('Enter the task description: ').strip()
+    date = input('Enter the due date (optional, format YYYY-MM-DD): ')
+    tasks.append(f'{description} (Due: {date})')
+
+    print('\nTask added successfully!')
+    return 'Run program for list of options.'
 
 
 if __name__ == '__main__':
