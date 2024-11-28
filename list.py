@@ -24,6 +24,8 @@ def prompt():
                 view_tasks(tasks)
             elif prompt == 2:
                 add_new_task(tasks)
+            elif prompt == 3:
+                mark_complete(tasks)
             elif prompt == 4:
                 delete_task(tasks)
         except ValueError:
@@ -52,6 +54,11 @@ def delete_task(tasks):
     id = int(input(('Which task would you like to delete? Enter the task number: ')))
     del tasks[id - 1]
     print('Task deleted successfully!')
+
+
+def mark_complete(tasks):
+    id = int(input('Which task would you like to mark as complete? Enter the task number:').strip())
+    tasks[id - 1] = f'[X] {tasks[id - 1]}'
 
 
 if __name__ == '__main__':
