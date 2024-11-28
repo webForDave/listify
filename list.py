@@ -29,7 +29,7 @@ def prompt():
         except ValueError:
             continue
         except KeyboardInterrupt:
-            break
+            return 'Exited!'
 
 def add_new_task(tasks):
     description = input('Enter the task description: ').strip()
@@ -46,10 +46,12 @@ def view_tasks(tasks):
         print('Here are your tasks: ')
         for index, task in enumerate(tasks, start=1):
             print(f'{index}.[] {task}')
-            
+
 
 def delete_task(tasks):
-    pass
+    id = int(input(('Which task would you like to delete? Enter the task number: ')))
+    del tasks[id - 1]
+    print('Task deleted successfully!')
 
 
 if __name__ == '__main__':
